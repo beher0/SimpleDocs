@@ -4,7 +4,7 @@ const withNextra = require('nextra')({
 })
 
 const nextConfig = {
-  assetPrefix: './',
+  // assetPrefix: '/',
   output: 'export',
   images: {
     unoptimized: true,
