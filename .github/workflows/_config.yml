@@ -41,23 +41,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-<<<<<<< HEAD
-          node-version: '14.x'
-
-      - name: Installing my packages
-        run: npm ci
-
-      - name: Build my App
-        run: npm run build && npm run export
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
-=======
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v2
->>>>>>> b740d48f3d5e3aa568be48e6e7990691f64e0869
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
           # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
