@@ -8,9 +8,8 @@ export default {
   sidebar: {
     toggleButton: true,
   },
-  components: <pre>haha </pre>,
   search: {
-    emptyResult: <span>找不到结果</span>,
+    emptyResult: <span className='empty-result'>找不到结果</span>,
     loading: '加载中',
     error: '搜索错误',
     placeholder: '搜索',
