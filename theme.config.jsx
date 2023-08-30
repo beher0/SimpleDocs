@@ -41,7 +41,8 @@ export default {
   // 网站图标
   faviconGlyph: './favicon.svg',
   // 编辑此页面的跳转链接 后会自动拼接 pages/
-  docsRepositoryBase: 'https://github.com/SimpleLifecst/nextra-template',
+  docsRepositoryBase:
+    'https://github.com/SimpleLifecst/nextra-template/tree/main/',
   // 页面标题 %s 占位符 由文章标题内容使用
   useNextSeoProps() {
     return {

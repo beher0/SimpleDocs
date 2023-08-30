@@ -1,15 +1,11 @@
-const repo = 'nextra-template'
-const assetPrefix = `/${repo}/`
-const basePath = `/${repo}`
-
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.jsx',
 })
 
 const nextConfig = {
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  assetPrefix: process.env.ASSET_PREFIX,
+  basePath: process.env.BASE_PATH,
   output: 'export',
   images: {
     unoptimized: true,
