@@ -1,11 +1,13 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.jsx',
 })
 
 const nextConfig = {
-  assetPrefix: process.env.ASSET_PREFIX,
-  basePath: process.env.BASE_PATH,
+  assetPrefix: isProd ? '/nextra-template' : '',
+  basePath: isProd ? '/nextra-template' : '',
   output: 'export',
   images: {
     unoptimized: true,
