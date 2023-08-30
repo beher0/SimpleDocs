@@ -1,7 +1,9 @@
+import Head from './components/Head';
 import Logo from './components/Logo';
 
 export default {
   logo: Logo,
+  head: <Head />,
   project: {
     link: 'https://github.com/SimpleLifecst/nextra-template',
   },
@@ -39,7 +41,7 @@ export default {
     ),
   },
   // 网站图标
-  faviconGlyph: './favicon.svg',
+  // faviconGlyph: './favicon.ico',
   // 编辑此页面的跳转链接 后会自动拼接 pages/
   docsRepositoryBase:
     'https://github.com/SimpleLifecst/nextra-template/tree/main/',

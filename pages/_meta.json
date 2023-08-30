@@ -1,17 +1,13 @@
 {
   "about": {
     "title": "关于",
-    "type": "page",
-    "theme": {
-
-    }
+    "type": "page"
   },
   "index": {
-    "title": "关于",
-    "display": "hidden",
+    "title": "介绍",
     "theme": {
-      "breadcrumb": false,
-      "layout": "full"
+      "breadcrumb": false
     }
-  }
+  },
+  "docs": "文档主题"
 }
