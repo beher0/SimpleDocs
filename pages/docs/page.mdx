@@ -1,127 +1,200 @@
+import {FileTree} from 'nextra/components';
+import Image from '../../components/Image';
+
 # 页面配置
 
-Hello, world!
+在 Nextra 中，可以通过配置`_meta.json`文件来配置站点和页面结构。在文档主题中，有一些额外的选项可用于进一步自定义它。
 
-## 第 1 步
+这些配置会影响主题的整体布局，尤其是导航栏和侧边栏。
 
-Hello, world!
-Hello, world!
-Hello, world!
+## 页面
 
-## 第 2 步
+在`pages`文件下创建以`.mdx`后缀的文件，它是可以书写 `markdown` 语法和`js`语法
 
-Hello, world!
-Hello, world!
-Hello, world!
+侧边栏中显示的页面标题和顺序应在`_meta.json`文件中配置为键值对。例如，如果您有以下文件结构：
 
-## 第 3 步
+<FileTree>
+  <FileTree.Folder name='pages' defaultOpen>
+    <FileTree.File name='_meta.json' />
+    <FileTree.File name='index.mdx' />
+    <FileTree.File name='contact.mdx' />
+    <FileTree.File name='about.mdx' />
+  </FileTree.Folder>
+</FileTree>
+您可以通过```_meta.json```文件定义页面在侧边栏中的显示方式
 
-Hello, world!
-Hello, world!
-Hello, world!
+```js copy filename="_meta.json"
+{
+  "index": "首页",
+  "contact": "联系我们",
+  "about": "关于"
+}
+```
 
-## 第 4 步
+## 文件夹
 
-Hello, world!
-Hello, world!
-Hello, world!
+文件夹的配置方式与页面相同。例如：
 
-## 第 5 步
+<FileTree>
+  <FileTree.Folder name='pages' defaultOpen>
+    <FileTree.File name='_meta.json' />
+    <FileTree.File name='index.mdx' />
+    <FileTree.File name='contact.mdx' />
+    <FileTree.File name='about.mdx' />
+    <FileTree.Folder name='fruits' defaultOpen>
+      <FileTree.File name='_meta.json' />
+      <FileTree.File name='apple.mdx' />
+      <FileTree.File name='banana.mdx' />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
 
-Hello, world!
-Hello, world!
-Hello, world!
+顶级`_meta.json`文件包含顶级页面和文件夹的元元素（导航栏名称）：
 
-## 第 6 步
+```js copy filename="pages/_meta.json"
+{
+  "index": "首页",
+  "contact": "联系我们",
+  "about": "关于"
+  "fruits": "水果"
+}
+```
 
-Hello, world!
-Hello, world!
-Hello, world!
+同理，嵌套的`_meta.json`文件包含同一文件夹中页面的元信息：
 
-## 第 7 步
+```js copy filename="pages/fruits/_meta.json"
+{
+  "apple": "苹果",
+  "banana": "香蕉"
+}
+```
 
-## 第一步
+这样，页面的信息就被分组到目录中。您可以移动目录而无需更改`_meta.json` 文件。
 
-## 第一步
+## 外部链接
 
-## 第一步
+在导航菜单中添加外部链接，通过设置`_meta.json`中的`href`属性
 
-asdad
+```js copy filename="pages/_meta.json" {3,4}
+{
+  "github_link": {
+    "title": "SimpleLife", // 设置菜单名
+    "href": "https://github.com/SimpleLifecst/nextra-template"
+  }
+}
+```
 
-## 第一步
+要始终在新窗口中打开链接，请启用`newWindow:true`选项：
 
-asda
+```js copy filename="pages/_meta.json" {5}
+{
+  "github_link": {
+    "title": "SimpleLife",
+    "href": "https://github.com/SimpleLifecst/nextra-template",
+    "newWindow": true
+  }
+}
+```
 
-## 第一步
+## 隐藏菜单
 
-## 第一步
+默认情况下，`pages`下的 MDX 文件页面都将显示在菜单栏上，如果你需要隐藏一个特殊的菜单，你可以在`_meta.json`设置`"display":"hidden"`
 
-## 第一步
+```js copy filename="pages/_meta.json" {4}
+{
+  "index": "首页",
+  "contact": {
+    "display": "hidden"
+  },
+  "about": "关于"
+}
+```
 
-## 第一步
+该页面仍然可以通过`/contact`URL 访问，但不会显示在侧边栏中。
 
-## 第一步
+## 导航栏
 
-## 第一步
+### 子文档
 
-## 第一步
+配置`_meta.json`中`"type":"page"`属性，它将在导航栏上显示为特殊页面，而不是侧边栏。使用此功能，您可以拥有多个“子文档”，以及始终可见的特殊页面或链接，例如“关于”。
 
-## 第一步
+在您的顶级`_meta.json`文件中，您可以将所有内容设置为页面，而不是普通的侧边栏项目：
 
-## 第一步
+```js copy filename="pages/_meta.json"
+{
+  "index": {
+    "title": "Home",
+    "type": "page"
+  },
+  "about": {
+    "title": "About",
+    "type": "page"
+  }
+}
+```
 
-## 第一步
+它的效果像这样：
 
-## 第一步
+<Image src='../../images/navbar.png' width={400} />
 
-## 第一步
+### 菜单
 
-## 第一步
+配置`"type":"menu"`设置为菜单，通过配置`items`来添加到导航栏的子项中 ：
 
-## 第一步
+<Image src='../../images/menu.webp' />
+```js copy filename="pages/_meta.json"
+{
+  "company": {
+    "title": "Company",
+    "type": "menu",
+    "items": {
+      "about": "关于"
+      "contact": "联系我们"
+    }
+  }
+}
+```
+### 链接
 
-## 第一步
+与外部链接配置相同，您也可以在导航栏中配置外部链接：
 
-## 第一步
+```js copy filename="pages/_meta.json" {5,6}
+{
+  "contact": {
+    "title": "Contact Us",
+    "type": "page",
+    "href": "https://example.com/contact",
+    "newWindow": true
+  }
+}
+```
 
-## 第一步
+## 后备预案
 
-## 第一步
+在上面的子文档示例中，我们必须为每个页面定义`"type":"page"`选项。为了方便起见，您可以使用`*`键来定义此文件夹中所有项目的后备配置：
 
-## 第一步
+```js copy filename="pages/_meta.json" {2-4}
+{
+  "*": {
+    "type": "page"
+  },
+  "index": "首页",
+  "about": "关于"
+}
+```
 
-## 第一步
+当所有项目都设置了`"type":"page"`时，它们是等效的。
 
-## 第一步
+## 分隔符
 
-## 第一步
+您可以使用占位符`"type":"separator"`在侧边栏菜单之间创建分隔线：
 
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
-
-## 第一步
+```js copy filename="pages/_meta.json"
+{
+  "index": "首页",
+  "---": {
+    "type": "separator"
+  },
+  "about": "关于"
+}
+```
