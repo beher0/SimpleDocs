@@ -19,7 +19,8 @@ const withNextra = require('nextra')({
 // 如果你有其他 Next.js 配置，你可以将它们作为参数传递给 withNextra
 const nextConfig = {}
 module.exports = withNextra(nextConfig)
-```
+
+````
 
 ### 创建文档主题配置
 
@@ -32,21 +33,24 @@ export default {
   }
   // ... 其他配置选项
 }
-```
+````
 
 ### 启动
-现在，您可以将您的第一个MDX页面创建为```page/index.mdx```：
+
+现在，您可以将您的第一个 MDX 页面创建为`page/index.mdx`：
+
 ```mdx copy filename="page/index.mdx"
 # Welcome to Nextra
- 
+
 Hello, world!
 ```
 
-在```package.json```配置启动命令，使用```npm run dev```运行你的项目
+在`package.json`配置启动命令，使用`npm run dev`运行你的项目
+
 ```json copy
 "scripts": {
   "dev": "next dev",
 },
 ```
-</Steps>
 
+</Steps>
