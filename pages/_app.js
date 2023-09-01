@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import '../globalStyle.css';
-import { setWebsiteIcon } from '../utils';
+import { setTocScrollToTop, setWebsiteIcon } from '../utils';
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    setWebsiteIcon(document)
+    setWebsiteIcon(document);
+    setTocScrollToTop(document)
   }, [])
 
   return <Component {...pageProps} />

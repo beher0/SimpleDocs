@@ -15,3 +15,8 @@ export function setWebsiteIcon(document) {
   link.href = url;
   document.getElementsByTagName('head')[0].appendChild(link);
 }
+
+export function setTocScrollToTop(document) {
+  const button = document.querySelector(".nextra-scrollbar>div>button");
+  button.innerHTML = "滚动到顶部"
+}
