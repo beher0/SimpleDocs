@@ -1,23 +1,12 @@
-import * as path from 'path';
+import Image from 'next/image';
 import style from './index.module.scss';
 
-function Image(props) {
-  const {src, width, height} = props;
-
+function Index({src, width = 1000, height = 1000}) {
   return (
-    <>
-      <img
-        src={
-          process.env.NODE_ENV != 'production'
-            ? src
-            : path.join('/nextra-template', src)
-        }
-        width={width}
-        height={height}
-        className={style.image}
-      />
-    </>
+    <div className={style.image}>
+      <Image src={src} alt='image' width={width} height={height} />
+    </div>
   );
 }
 
-export default Image;
+export default Index;
