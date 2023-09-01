@@ -1,11 +1,17 @@
-import Image from 'next/image';
+import {getAvailablePath} from '../../utils/index';
 import style from './index.module.scss';
 
-function Index({src, width = 1000, height = 1000}) {
+export function Index({src, width, height}) {
   return (
-    <div className={style.image}>
-      <Image src={src} alt='image' width={width} height={height} />
-    </div>
+    <>
+      <img
+        src={getAvailablePath(src)}
+        alt='image'
+        width={width}
+        height={height}
+        className={style.image}
+      />
+    </>
   );
 }
 
