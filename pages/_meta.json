@@ -1,8 +1,10 @@
 {
-
   "about": {
     "title": "关于",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "typesetting": "article"
+    }
   },
   "index": {
     "title": "介绍",

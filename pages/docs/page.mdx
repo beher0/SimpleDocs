@@ -198,3 +198,78 @@ import Image from '../../components/Image';
   "about": "关于"
 }
 ```
+
+## 高级
+
+### 主题组件
+
+您可以使用`theme`属性为每个页面配置主题。例如，您可以禁用或启用特定页面的特定组件：
+`breadcrumb`页面面包屑、`footer`底部版权信息、`sidebar`侧边栏、`toc`右侧目录、`pagination`翻页功能
+
+```js copy filename="pages/_meta.json" {5-9}
+{
+  "index": {
+    "title": "首页",
+    "theme": {
+      "breadcrumb": false,
+      "footer": false,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    }
+  }
+}
+```
+
+如果设置的是文件夹，所有子页面都将继承此属性。
+
+### 布局
+
+默认情况下，每个页面在其主题配置中都有`"layout":"default"`这是默认行为。
+
+#### 原始布局
+
+默认情况下，Nextra 会为 MDX 内容提供样式（如 h1、h2、h3 等），设置布局`"layout":"raw"`，您可以使用最原始的布局，Nextra 不会额外注入样式，这样您可以更好的设计页面。
+
+```js copy filename="pages/_meta.json" {5}
+{
+  "index": {
+    "title": "首页",
+    "theme": {
+      "layout": "raw"
+    }
+  }
+}
+```
+
+#### 完全布局
+
+您可能希望渲染一些具有完全容器宽度和高度的页面（将去掉目录右侧栏），这将但保留所有其他样式。您可以配置`"layout":"full"`来做到这一点：
+
+```js copy filename="pages/_meta.json" {5}
+{
+  "index": {
+    "title": "首页",
+    "theme": {
+      "layout": "full"
+    }
+  }
+}
+```
+
+### 排版
+
+`typesetting`控制排版细节，如字体特征、标题样式以及`li`和`code`等组件。文档主题中有`default`和`article`两种排版。
+
+默认值适用于大多数情况，如留档，但您可以使用`article`排版使其看起来像一个优雅的文章页面：
+
+```js copy filename="pages/_meta.json" {5}
+{
+  "about": {
+    "title": "关于",
+    "theme": {
+      "typesetting": "article"
+    }
+  }
+}
+```
