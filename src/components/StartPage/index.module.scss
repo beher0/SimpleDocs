@@ -1,0 +1,47 @@
+.container {
+  padding: 20px;
+
+  .title {
+    max-width: 950px;
+
+    header {
+      font-size: 80px;
+      background-image: -webkit-linear-gradient(left, #000, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: STXihei, '华文细黑', 'Microsoft YaHei', '微软雅黑';
+    }
+  }
+}
+
+.small_title {
+  font-size: 25px;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  background-color: #077bff;
+  margin: 20px 0;
+  border-radius: 50px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+
+  span {
+    padding-left: 5px;
+    width: 30px;
+  }
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 22px 5px rgba(0, 0, 255, 0.2);
+
+  span {
+    padding-left: 10px;
+    transition: all 0.3s linear;
+  }
+}

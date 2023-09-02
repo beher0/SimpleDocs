@@ -11,9 +11,12 @@ export default function Table({list}) {
           </tr>
         </thead>
         <tbody className='align-baseline text-gray-900 dark:text-gray-100'>
-          {list.map(({option, type, desc}) => {
+          {list.map(({option, type, desc}, index) => {
             return (
-              <tr className='border-b border-gray-100 dark:border-neutral-700/50'>
+              <tr
+                key={index}
+                className='border-b border-gray-100 dark:border-neutral-700/50'
+              >
                 <td className='whitespace-pre py-2 font-mono text-xs font-semibold leading-6 text-violet-600 dark:text-violet-500'>
                   {option}
                 </td>
