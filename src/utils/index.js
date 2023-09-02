@@ -1,6 +1,5 @@
 import * as path from 'path';
 
-// 拼接线上图片路径方法
 export function getAvailablePath(src) {
   return process.env.NODE_ENV != 'production'
     ? src
@@ -14,9 +13,4 @@ export function setWebsiteIcon(document) {
   link.rel = 'shortcut icon';
   link.href = url;
   document.getElementsByTagName('head')[0].appendChild(link);
-}
-
-export function setTocScrollToTop(document) {
-  const button = document.querySelector(".nextra-scrollbar>div>button");
-  button.innerHTML = "滚动到顶部"
 }
