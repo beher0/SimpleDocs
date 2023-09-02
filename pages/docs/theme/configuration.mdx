@@ -1,0 +1,42 @@
+import Table from '@/components/Table';
+import Image from '@/components/Image';
+
+# 主题配置
+
+该主题使用`theme.config.jsx`文件配置。它应该导出一个包含您的配置的对象，例如：
+
+```js copy filename="theme.config.jsx"
+export default {
+  project: {
+    link: 'https://github.com/shuding/nextra',
+  },
+  logo: <strong>Project</strong>,
+};
+```
+
+下面列出了每个选项的详细信息。
+
+## 全局配置
+
+### 文档存储库(github/gitee 仓库)
+
+设置文档仓库 URL。它用于生成`问题？给我反馈`链接和`在 GitHub 上编辑此页面`链接。
+
+<Table
+  list={[{option: 'docsRepositoryBase', type: 'string', desc: '存储库地址'}]}
+></Table>
+
+#### 指定路径
+
+如果您的文档为于子文件夹或存储库的不同分支中，您可以简单地将`docsRepositoryBase`设置为文档页面/文件夹的根路径。例如：
+
+```js copy
+export default {
+  docsRepositoryBase:
+    'https://github.com/SimpleLifecst/nextra-template/tree/main/',
+};
+```
+
+当点击如下链接，会在自动拼接上正确的路径
+
+<Image src='/images/toc_link.png'></Image>

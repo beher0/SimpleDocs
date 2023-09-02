@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    flex: 1;
+  }
+}
+
+.option {
+  span {
+    font-size: 14px;
+    font-style: arial;
+  }
+
+  span:first-child {
+    color: #9159f0;
+  }
+  span:nth-child(2) {
+    color: #768499;
+  }
+}
+
+.head {
+  color: #334155;
+  font-weight: 600;
+}

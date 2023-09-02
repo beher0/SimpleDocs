@@ -6,18 +6,48 @@
   height: 90px;
   color: #a4aab5;
 }
-
-.nextra-scrollbar > div > button {
+/* toc滚动到顶部的元素 */
+/* .nextra-scrollbar > div > button {
   position: relative;
+} */
+
+.custom-table {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.nextra-scrollbar > div > button::after {
-  content: '';
-  background-image: url('src/svgs/arrow.svg');
-  position: relative;
-  left: -3px;
-  top: -2px;
-  width: 17px;
-  height: 17px;
-  background-repeat: no-repeat;
+.custom-table thead tr {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.custom-table thead tr th {
+  flex: 1;
+  text-align: left;
+  padding: 10px 0;
+}
+
+.custom-table thead tr th:last-child {
+  flex: 2;
+}
+
+.custom-table tbody tr {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.custom-table tbody tr td {
+  flex: 1;
+  text-align: left;
+  padding: 10px 0;
+}
+
+.custom-table tbody tr td:last-child {
+  flex: 2;
+}
+
+.custom-table tbody tr td:first-child {
+  color: #9159f0;
 }
