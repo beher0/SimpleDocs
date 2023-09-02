@@ -1,56 +1,8 @@
-import {Steps} from 'nextra/components';
-
-# 创建一个新项目
-
-<Steps>
-### 安装
-```sh npm2yarn copy 
-npm i next react react-dom nextra nextra-theme-docs
-```
+import {useState} from 'react';
+import Image from '@/components/Image'
  
-### 添加 Next.js 配置
-在项目的根目录中创建以下```next.config.js```文件：
-```jsx copy filename="next.config.js"
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.jsx'
-})
+# Nextra
 
-// 如果你有其他 Next.js 配置，你可以将它们作为参数传递给 withNextra
-const nextConfig = {}
-module.exports = withNextra(nextConfig)
+Nextra 是基于 Next.js 开发的一个主题框架，可让您构建以内容为中心的网站。它具有 Next.js 的所有强大功能，
 
-````
-
-### 创建文档主题配置
-
-在项目的根目录中创建主题 ```theme.config.jsx``` 文件。
-```jsx copy filename="theme.config.jsx"
-export default {
-  logo: <span>My Nextra Documentation</span>,
-  project: {
-    link: 'https://github.com/simplelife/nextra-template'
-  }
-  // ... 其他配置选项
-}
-````
-
-### 启动
-
-现在，您可以将您的第一个 MDX 页面创建为`page/index.mdx`：
-
-```mdx copy filename="page/index.mdx"
-# Welcome to Nextra
-
-Hello, world!
-```
-
-在`package.json`配置启动命令，使用`npm run dev`运行你的项目
-
-```json copy
-"scripts": {
-  "dev": "next dev",
-},
-```
-
-</Steps>
+<Image src='./images/docs-theme.webp' width={400} />

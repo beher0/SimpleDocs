@@ -1,16 +1,20 @@
 {
+  "docs": {
+    "title": "指南",
+    "type": "page"
+  },
   "about": {
     "title": "关于",
-    "type": "page",
-    "theme": {
-      "typesetting": "article"
-    }
+    "type": "page"
   },
   "index": {
-    "title": "介绍",
+    "type": "page",
+    "display": "hidden",
     "theme": {
-      "breadcrumb": false
+      "layout": "raw",
+      "sidebar": false,
+      "toc": false,
+      "footer": false
     }
-  },
-  "docs": "文档主题"
+  }
 }

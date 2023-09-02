@@ -1,6 +1,6 @@
-import Head from './components/Head';
-import LastUpdateDate from './components/LastUpdateDate';
-import Logo from './components/Logo';
+import Head from '@/components/Head';
+import LastUpdateDate from '@/components/LastUpdateDate';
+import Logo from '@/components/Logo';
 
 export default {
   logo: Logo,

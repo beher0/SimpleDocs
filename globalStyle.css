@@ -13,7 +13,7 @@
 
 .nextra-scrollbar > div > button::after {
   content: '';
-  background-image: url('svgs/top.svg');
+  background-image: url('src/svgs/arrow.svg');
   position: relative;
   left: -3px;
   top: -2px;
