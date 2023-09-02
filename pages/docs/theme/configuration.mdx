@@ -1,5 +1,6 @@
 import Table from '@/components/Table';
 import Image from '@/components/Image';
+import {Callout} from 'nextra/components';
 
 # 主题配置
 
@@ -28,7 +29,7 @@ export default {
 
 #### 指定路径
 
-如果您的文档为于子文件夹或存储库的不同分支中，您可以简单地将`docsRepositoryBase`设置为文档页面/文件夹的根路径。例如：
+如果您的文档为子文件夹或存储库的不同分支中，您可以简单地将`docsRepositoryBase`设置为文档页面/文件夹的根路径。例如：
 
 ```js copy
 export default {
@@ -40,3 +41,135 @@ export default {
 当点击如下链接，会在自动拼接上正确的路径
 
 <Image src='/images/toc_link.png'></Image>
+
+### 搜索引擎优化
+
+您可以通过 useNextSeoProps 选项配置 SEO 相关设置。useNextSeoProps 函数返回将传递给 Next SEO 组件的道具。
+
+它也是一个钩子，因此您可以在里面使用像`useRouter`这样的 API 来有条件地返回值。
+
+<Table
+  list={[
+    {
+      option: 'useNextSeoProps',
+      type: '() => NextSeoProps',
+      desc: '返回Next SEO选项的React钩子函数。',
+    },
+  ]}
+></Table>
+
+例如，我们可以让所有的页面显示相同后缀的标题
+
+<Image src='/images/title.png'></Image>
+
+```js copy
+export default {
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – SimpleLife',
+    };
+  },
+};
+```
+
+这个`%s`是一个占位符，它会替换我们页面的标题
+
+您也可以有条件地返回它，以避免在主页上添加后缀：
+
+```js copy
+export default {
+  useNextSeoProps() {
+    const {asPath} = useRouter();
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s – SimpleLife',
+      };
+    }
+  },
+};
+```
+
+### Head 标签
+
+配置网站的`<head>`标签。您可以添加元标签、标题、网站图标等。
+
+<Table
+  list={[
+    {
+      option: 'head',
+      type: 'React.ReactNode | React.FC',
+      desc: '将组件内容渲染到<head>标签内。',
+    },
+  ]}
+></Table>
+
+<Callout type='warning'>
+  使用`head`属性添加网站图标不稳定，刷新页面图标就加载不出了，谨慎使用
+</Callout>
+
+#### 静态 Head 标签
+
+如果你只有静态的头部标签，很容易直接把它们放在`<head>`内。例如：
+
+```js copy
+export default {
+  head: (
+    <>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <meta property='og:title' content='SimpleLife' />
+      <meta property='og:description' content='This website is SimpleLife' />
+    </>
+  ),
+};
+```
+
+#### 动态 Head 标签
+
+您还可以使用函数组件作为`head`，根据当前页面的前提动态生成 `head` 标签。例如：
+
+```js copy
+import {useRouter} from 'next/router';
+import {useConfig} from 'nextra-theme-docs';
+
+export default {
+  head: () => {
+    const {asPath, defaultLocale, locale} = useRouter();
+    const {frontMatter} = useConfig();
+    const url =
+      'https://my-app.com' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
+
+    return (
+      <>
+        <meta property='og:url' content={url} />
+        <meta property='og:title' content={frontMatter.title || 'SimpleLife'} />
+        <meta
+          property='og:description'
+          content={frontMatter.description || 'This website is SimpleLife'}
+        />
+      </>
+    );
+  },
+};
+```
+
+<Callout type='info'>关于 useConfig API 部分待Nextra出更详细的文档</Callout>
+
+### 黑暗模式和主题
+
+自定义网站的主题内容。
+
+<Table
+  list={[
+    {
+      option: 'darkMode',
+      type: 'boolean',
+      desc: '显示或隐藏黑暗模式状态开关按钮。',
+    },
+    {
+      option: 'nextThemes',
+      type: 'object',
+      desc: 'Configuration for the next-themes package.',
+    },
+  ]}
+></Table>
