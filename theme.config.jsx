@@ -4,7 +4,6 @@ import Logo from '@/components/Logo';
 
 export default {
   logo: Logo,
-  logoLink: false,
   head: <Head />,
   project: {
     link: 'https://github.com/SimpleLifecst/nextra-template',

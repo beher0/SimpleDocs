@@ -12,7 +12,7 @@ export default function StartPage() {
       </div>
 
       <div className={style.btn}>
-        <Link href='/docs'>Get Started</Link>
+        <Link href='/docs/instruction'>Get Started</Link>
         <span>→</span>
       </div>
     </div>
