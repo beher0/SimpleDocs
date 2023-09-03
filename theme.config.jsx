@@ -4,6 +4,7 @@ import Logo from '@/components/Logo';
 
 export default {
   logo: Logo,
+  logoLink: false,
   head: <Head />,
   project: {
     link: 'https://github.com/SimpleLifecst/nextra-template',
@@ -29,10 +30,7 @@ export default {
     content: '问题？给我反馈 →',
   },
   // 翻译功能
-  navigation: {
-    prev: true,
-    next: true,
-  },
+  navigation: true,
   // 底部版权标识
   footer: {
     text: (

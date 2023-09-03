@@ -33,7 +33,8 @@
 }
 
 .custom-table tbody tr {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB',
+    'Heiti SC', STXihei, 'Microsoft YaHei', SimHei, 'WenQuanYi Micro Hei';
 }
 
 .custom-table tbody tr td {
@@ -49,4 +50,8 @@
 
 .custom-table tbody tr td:first-child {
   color: #9159f0;
+}
+
+.custom-table tbody tr td:nth-child(2) {
+  color: #8894a6;
 }

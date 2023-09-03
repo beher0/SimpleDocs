@@ -11,7 +11,7 @@ export default function Table({list}) {
           </tr>
         </thead>
         <tbody className='align-baseline text-gray-900 dark:text-gray-100'>
-          {list.map(({option, type, desc}, index) => {
+          {list.map(({option, type, desc = ''}, index) => {
             return (
               <tr
                 key={index}

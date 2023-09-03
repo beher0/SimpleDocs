@@ -1,6 +1,6 @@
 import style from './index.module.css';
 
-function index() {
+export default function Logo() {
   return (
     <span className={style.logo}>
       <svg
@@ -25,5 +25,3 @@ function index() {
     </span>
   );
 }
-
-export default index;

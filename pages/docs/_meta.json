@@ -5,5 +5,9 @@
       "breadcrumb": false
     }
   },
+  "--": {
+    "type": "separator",
+    "title": "A Separator"
+  },
   "theme": "文档主题"
 }
