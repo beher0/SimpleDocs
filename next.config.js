@@ -1,14 +1,14 @@
+const { repository } = require('./src/config');
 const path = require('path')
 const isProd = process.env.NODE_ENV === 'production'
-
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.jsx',
 })
 
 const nextConfig = {
-  assetPrefix: isProd ? '/nextra-template' : '',
-  basePath: isProd ? '/nextra-template' : '',
+  assetPrefix: isProd ? `/${repository}` : '',
+  basePath: isProd ? `/${repository}` : '',
   output: 'export',
   images: {
     unoptimized: true,

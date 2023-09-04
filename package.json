@@ -4,7 +4,7 @@
   "description": "nextra框架搭建的文档主题网站",
   "homepage": "https://github.com/SimpleLifecst/nextra-template",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "deploy": "gh-pages -d out"

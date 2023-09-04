@@ -1,9 +1,15 @@
+import { repository } from '@/config.js';
 import * as path from 'path';
 
 export function getAvailablePath(src) {
+
+  if (src.slice(0, 4) === "http") {
+    return src
+  }
+
   return process.env.NODE_ENV != 'production'
     ? src
-    : path.join('/nextra-template', src)
+    : path.join(`/${repository}`, src)
 }
 
 export function setWebsiteIcon(document) {

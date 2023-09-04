@@ -1,0 +1,10 @@
+{
+  "instruction": {
+    "title": "介绍",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "theme": "文档主题",
+  "build-ins": "内置组件"
+}
