@@ -33,9 +33,11 @@ export default {
   // 底部版权标识
   footer: {
     text: (
-      <span>
-        Copyright {new Date().getFullYear()} © <span>SimpleLife</span>.
-      </span>
+      <div className='sl-footer'>
+        <span>一个简单的人，做一件简单的事😀</span>
+        <br />
+        <span>Copyright {new Date().getFullYear()} © SimpleLife.</span>
+      </div>
     ),
   },
   // 网站图标

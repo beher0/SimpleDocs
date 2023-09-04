@@ -55,3 +55,13 @@
 .custom-table tbody tr td:nth-child(2) {
   color: #8894a6;
 }
+
+.sl-footer > span:first-child {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.sl-footer span:last-child {
+  font-size: 12px;
+  font-style: italic;
+}
