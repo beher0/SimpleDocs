@@ -1,6 +1,7 @@
 import Table from '@/components/Table';
 import Image from '@/components/Image';
 import {Callout} from 'nextra/components';
+import {Tab, Tabs} from 'nextra/components';
 
 # 主题配置
 
@@ -169,7 +170,7 @@ export default {
     {
       option: 'nextThemes',
       type: 'object',
-      desc: 'Configuration for the next-themes package.',
+      desc: '"next-themes"主题的配置',
     },
   ]}
 ></Table>
@@ -187,6 +188,19 @@ export default {
     },
   ]}
 ></Table>
+
+```js copy {2,6-9}
+export default {
+  primaryHue: 0,
+};
+
+export default {
+  primaryHue: {
+    dark: 0,
+    light: 150
+  }
+};
+```
 
 ## 导航栏
 
@@ -305,7 +319,7 @@ export default {
     {
       option: 'search.component',
       type: 'React.ReactNode | React.FC<{ className?: string, directories: Item[]}>',
-      desc: '无',
+      desc: '搜索栏组件，可重写搜索栏',
     },
     {
       option: 'search.emptyResult',
@@ -350,7 +364,7 @@ export default {
     {
       option: 'banner.dismissible',
       type: 'boolean',
-      desc: '是否关闭横幅',
+      desc: '是否显示关闭横幅按钮',
     },
     {
       option: 'banner.key',
@@ -359,11 +373,46 @@ export default {
     },
     {
       option: 'banner.text',
-      type: 'React.ReactNode | React.FC	',
+      type: 'React.ReactNode | React.FC',
       desc: '横幅内容',
     },
   ]}
 ></Table>
+
+<Image src='/images/banner.png'></Image>
+
+```js copy
+banner: {
+  dismissible: true,
+  text: (
+    <a
+      href='https://github.com/SimpleLifecst/nextra-template'
+      target='_blank'
+    >
+      🎉 查看SimpleLife GitHub仓库.
+    </a>
+  ),
+},
+```
+
+#### Banner key
+
+横幅可以被关闭。默认情况下，`banner.key`是`nextra-banner`，会存储在`localStorage`使用它来保持横幅状态（关闭或不关闭）在客户端上。
+
+可以自定义`key`值，通过改变 key 来改变横幅的状态：`1`打开、`0`关闭
+
+```js copy
+export default {
+  banner: {
+    key: 'SimpleLife',
+    text: <a>…………</a>,
+  },
+};
+```
+
+<Callout type='info'>
+  目前我没有很好的办法，来实现动态的打开和关闭，都需要刷新页面才能响应，这与黑暗主题的切换完全不一样
+</Callout>
 
 ### 自定义导航栏
 
@@ -383,6 +432,22 @@ export default {
     },
   ]}
 ></Table>
+
+如果你觉得当前的导航条不是很满意，完全可以自定义。使用`extraContent`可以添加一个额外的按钮，例如反馈按钮：
+
+<Image src='/images/feedback.png' />
+
+```js copy
+import Navbar from "@/components/Navbar"
+import Feedback from "@/components/Feedback"
+
+export {
+  navbar: {
+    component: Navbar,
+    extraContent: Feedback
+  }
+}
+```
 
 ## 侧边栏
 
@@ -423,20 +488,37 @@ export default {
 
 <Image src='/images/sidebar-customized.png'></Image>
 
-```js copy
-export default {
-  sidebar: {
-    titleComponent({title, type}) {
-      if (type === 'separator') {
-        return (
-          <div style={{background: 'cyan', textAlign: 'center'}}>{title}</div>
-        );
-      }
-      return <>👉 {title}</>;
-    },
-  },
-};
-```
+<Tabs items={['theme.config.jsx', 'pages/_meta.json']}>
+  <Tab>
+    ```js copy
+    export default {
+      sidebar: {
+        titleComponent({title, type}) {
+          if (type === 'separator') {
+            return (
+              <div style={{background: 'cyan', textAlign: 'center'}}>{title}</div>
+            );
+          }
+          return <>👉 {title}</>;
+        },
+      },
+    };
+    ```
+  </Tab>
+  <Tab>
+    ```json copy
+    {
+      "index": "Intro",
+      "--": {
+        "type": "separator",
+        "title": "A Separator"
+      },
+      "frameworks": "JS Frameworks & Libs",
+      "about": "About"
+    }
+    ```
+  </Tab>
+</Tabs>
 
 ## 内容
 
@@ -445,7 +527,7 @@ export default {
 提供自定义 MDX 组件来渲染内容。例如，您可以使用自定义`pre`来渲染代码块。
 
 <Table
-  src={[
+  list={[
     {
       option: 'components',
       type: 'Record<string, React.FC>',
@@ -459,10 +541,10 @@ export default {
 网站的默认书写方向。
 
 <Table
-  src={[
+  list={[
     {
       option: 'direction',
-      type: 'ltr' | 'rtl',
+      type: '"ltr" | "rtl"',
       desc: '书写方向',
     },
   ]}
@@ -473,7 +555,7 @@ export default {
 渲染页面主要区域的顶部或底部内容。它可用于渲染评论部分、时事通讯表单或任何其他类型的内容。
 
 <Table
-  src={[
+  list={[
     {
       option: 'main',
       type: 'React.FC<{ children: React.ReactNode }>',
@@ -489,7 +571,7 @@ export default {
 在页面右侧显示目录。它对于在标题之间导航很有用。
 
 <Table
-  src={[
+  list={[
     {
       option: 'toc.component',
       type: 'React.ReactNode | React.FC<TOCProps>',
@@ -522,6 +604,16 @@ export default {
     },
   ]}
 ></Table>
+
+```js copy
+export default {
+  toc: {
+    title: '目录',
+    backToTop: true,
+    float: true,
+  },
+};
+```
 
 ### 浮动目录
 

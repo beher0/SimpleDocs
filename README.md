@@ -7,5 +7,3 @@ https://simplelifecst.github.io/nextra-template
 2.更新时间，上线项目无法显示
 3.链接路径问题
 
-# 功能
-搞定黑暗模式的原理

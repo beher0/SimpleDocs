@@ -1,28 +1,33 @@
+import {Cards, Card} from 'nextra/components';
+import {
+  MessageOutlined,
+  ExclamationOutlined,
+  QuestionOutlined,
+} from '@ant-design/icons';
+
 # Cards 组件
 
 ## 示例
 
-import {Cards, Card} from 'nextra/components';
-
 <Cards>
-  <Card title='Callout' href='./callout' />
-  <Card title='Tabs' href='./tabs' />
-  <Card title='Steps' href='./steps' />
+  <Card icon={<MessageOutlined />} title='Callout' href='./callout' />
+  <Card icon={<ExclamationOutlined />} title='Tabs' href='./tabs' />
+  <Card icon={<QuestionOutlined />} title='Steps' href='./steps' />
 </Cards>
 
 ## 用法
 
 ```js copy
 import {Cards, Card} from 'nextra/components';
-import {CardsIcon, OneIcon, WarningIcon} from '../../icons';
+import {
+  MessageOutlined,
+  ExclamationOutlined,
+  QuestionOutlined,
+} from '@ant-design/icons';
 
 <Cards>
-  <Card
-    icon={<WarningIcon />}
-    title='Callout'
-    href='/docs/guide/built-ins/callout'
-  />
-  <Card icon={<CardsIcon />} title='Tabs' href='/docs/guide/built-ins/tabs' />
-  <Card icon={<OneIcon />} title='Steps' href='/docs/guide/built-ins/steps' />
+  <Card icon={<MessageOutlined />} title='Callout' href='./callout' />
+  <Card icon={<ExclamationOutlined />} title='Tabs' href='./tabs' />
+  <Card icon={<QuestionOutlined />} title='Steps' href='./steps' />
 </Cards>;
 ```

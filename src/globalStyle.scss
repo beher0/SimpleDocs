@@ -1,0 +1,71 @@
+.light {
+  .border {
+    border: 1px solid #e5e7eb;
+  }
+  .custom-table tr {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.dark {
+  .border {
+    border: 1px solid #282828;
+  }
+  .custom-table tr {
+    border-bottom: 1px solid #282828;
+  }
+}
+
+// 其他
+.empty-result {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  color: #a4aab5;
+}
+
+// Table组件
+.custom-table {
+  margin: 15px 0;
+  border-collapse: collapse;
+  width: 100%;
+
+  td,
+  th {
+    text-align: left;
+    padding: 8px;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: 0;
+  }
+
+  tbody td {
+    text-align: left;
+    font-size: 14px;
+    min-width: 150px;
+  }
+
+  tbody td:first-child {
+    color: #9159f0;
+  }
+
+  tbody td:nth-child(2) {
+    color: #64748b;
+  }
+}
+
+.sl-footer {
+  span:first-child {
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  span:last-child {
+    font-size: 12px;
+    font-style: italic;
+  }
+}

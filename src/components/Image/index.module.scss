@@ -1,5 +1,14 @@
-.image {
-  border: 1px solid #ccc;
-  border-radius: 10px;
+.container {
   margin: 10px 0;
+
+  .image {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .test {
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
 }
