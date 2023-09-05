@@ -524,7 +524,7 @@ export {
 
 ### MDX 组件
 
-提供自定义 MDX 组件来渲染内容。例如，您可以使用自定义`pre`来渲染代码块。
+提供自定义 MDX 组件中的元素来渲染内容。例如，您可以使用自定义`pre`来渲染代码块。
 
 <Table
   list={[
@@ -535,6 +535,18 @@ export {
     },
   ]}
 ></Table>
+
+```js copy
+import Code from '@/components/Code';
+
+export default {
+  components: {
+    pre: Code,
+  },
+};
+```
+
+`components`属性是一个对象，使用键值对的形式，键必须是规定的元素，请查看[MDX components](https://mdxjs.com/table-of-components/ 'MDX components')
 
 ### 书写方向
 
@@ -550,6 +562,12 @@ export {
   ]}
 ></Table>
 
+```js copy
+export default {
+  direction: 'rtl',
+};
+```
+
 ### 主要内容
 
 渲染页面主要区域的顶部或底部内容。它可用于渲染评论部分、时事通讯表单或任何其他类型的内容。
@@ -563,6 +581,27 @@ export {
     },
   ]}
 ></Table>
+
+```js copy
+import MainComponent from '@/components/MainComponent';
+
+export default {
+  main: MainComponent,
+};
+```
+
+如果你需要在文章底部添加一个评论区，可将您的组件，放置在`children`下面
+
+```js copy filename="MainComponent"
+export default function MainComponent({children}) {
+  return (
+    <>
+      <div>{children}</div>
+      <div>评论区</div>
+    </div>
+  );
+}
+```
 
 ## 目录侧边栏
 
@@ -640,7 +679,7 @@ export default {
 
 ### 反馈链接
 
-内置反馈链接为用户提供了一种提交留档反馈的方式。默认情况下，它是一个指向文档存储库问题创建表单的链接，当前网站标题预填充
+内置反馈链接为用户提供了一种提交留档反馈的方式。默认情况下，它是一个指向文档存储库问题创建表单的链接，使用当前网站标题预填充 issue 标题
 
 <Table
   list={[
@@ -717,6 +756,22 @@ export default {
   ]}
 ></Table>
 
+```js copy
+export default {
+  gitTimestamp: LastUpdateDate,
+};
+```
+
+```js copy filename="LastUpdateDate"
+import dayjs from 'dayjs';
+
+function LastUpdateDate({timestamp}) {
+  return '最后更新于 ' + dayjs(timestamp).format('YYYY年M月D日');
+}
+
+export default LastUpdateDate;
+```
+
 ## 尾部
 
 网站的尾部区域。您可以为默认尾部指定一些内容，也可以使用自定义组件对其进行完全自定义
@@ -726,12 +781,12 @@ export default {
     {
       option: 'footer.text',
       type: 'React.ReactNode | React.FC',
-      desc: '组件渲染最近更新的信息',
+      desc: '默认页脚组件的内容',
     },
     {
       option: 'footer.component',
       type: 'React.ReactNode | React.FC<{ menu: boolean }>',
-      desc: '组件渲染最近更新的信息',
+      desc: '自定义的页脚组件',
     },
   ]}
 ></Table>

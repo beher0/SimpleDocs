@@ -6,5 +6,6 @@
     }
   },
   "theme": "文档主题",
-  "build-ins": "内置组件"
+  "build-ins": "内置组件",
+  "deploy": "部署"
 }
