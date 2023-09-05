@@ -5,9 +5,7 @@
   "homepage": "https://github.com/SimpleLifecst/nextra-template",
   "scripts": {
     "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "deploy": "gh-pages -d out"
+    "build": "next build"
   },
   "repository": {
     "type": "git",
@@ -22,14 +20,12 @@
     "@ant-design/icons": "^5.2.6",
     "antd": "^5.8.6",
     "dayjs": "^1.11.9",
-    "gh-pages": "^6.0.0",
     "next": "^13.4.19",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "use-persisted-state": "^0.3.3"
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "sass": "^1.66.1"
