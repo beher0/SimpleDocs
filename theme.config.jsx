@@ -1,12 +1,13 @@
 import Head from '@/components/Head';
 import LastUpdateDate from '@/components/LastUpdateDate';
 import Logo from '@/components/Logo';
+import { repository } from '@/config';
 
 export default {
   logo: Logo,
   head: <Head />,
   project: {
-    link: 'https://github.com/SimpleLifecst/nextra-template',
+    link: `https://github.com/SimpleLifecst/${repository}`,
   },
   sidebar: {
     toggleButton: true,
@@ -44,7 +45,7 @@ export default {
   // faviconGlyph: './favicon.ico',
   // 编辑此页面的跳转链接 后会自动拼接 pages/
   docsRepositoryBase:
-    'https://github.com/SimpleLifecst/nextra-template/tree/main/',
+    `https://github.com/SimpleLifecst/${repository}/tree/main/`,
   // 页面标题 %s 占位符 由文章标题内容使用
   useNextSeoProps() {
     return {
