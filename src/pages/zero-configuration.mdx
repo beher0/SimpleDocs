@@ -1,11 +1,60 @@
-# 零配置
+# 上手
 
 以极简的方式，让你零配置上手 Nextra 文档主题，以避免复杂的配置
 
 ## 克隆项目
 
-```git copy
-https://github.com/SimpleLifecst/nextra-template.git
+```sh copy
+git clone https://github.com/SimpleLifecst/SimpleDocs.git
 ```
+
+### 安装依赖
+
+请确保您的NodeJS环境版本在`v16.20.2`及以上。
+
+```sh copy
+npm install
+yarn add
+```
+
+## 介绍项目目录
+
+import { FileTree } from 'nextra/components';
+
+<FileTree>
+  <FileTree.Folder name="SimpleDocs" defaultOpen>
+    <FileTree.File name="public" />
+    <FileTree.Folder name="src" defaultOpen>
+      <FileTree.File name="components" />
+      <FileTree.File name="pages" />
+      <FileTree.File name="config.js" />
+      <FileTree.File name="globalStyle.scss" />
+    </FileTree.Folder>
+    <FileTree.File name="next.config.js" />
+    <FileTree.File name="theme.config.js" />
+  </FileTree.Folder>
+</FileTree>
+
+### public
+
+存放静态文件，如图片、音频等
+
+### src
+
+#### components
+
+存放公共组件，如有我自定义的Image组件和Table组件
+
+#### pages
+
+存放页面
+
+#### config.js
+
+公共配置，配置您的仓库地址
+
+#### globalStyle.scss
+
+全局的css样式文件
 
 ## 修改配置

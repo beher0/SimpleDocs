@@ -1,19 +1,19 @@
 import Head from '@/components/Head';
 import LastUpdateDate from '@/components/LastUpdateDate';
 import Logo from '@/components/Logo';
-import {repository} from '@/config';
+import { repository, username } from '@/config';
 
 export default {
   logo: Logo,
-  head: <Head/>,
+  head: <Head />,
   project: {
-    link: `https://github.com/SimpleLifecst/${repository}`,
+    link: `https://github.com/${username}/${repository}`,
   },
   sidebar: {
     toggleButton: true,
   },
   search: {
-    emptyResult: <span className='empty-result'>找不到结果</span>,
+    emptyResult: <span className="empty-result">找不到结果</span>,
     loading: '加载中',
     error: '搜索错误',
     placeholder: '搜索',
@@ -34,9 +34,9 @@ export default {
   // 底部版权标识
   footer: {
     text: (
-      <div className='sl-footer'>
+      <div className="sl-footer">
         <span>一个简单的人，做一件简单的事😀</span>
-        <br/>
+        <br />
         <span>Copyright {new Date().getFullYear()} © SimpleLife.</span>
       </div>
     ),
@@ -44,8 +44,7 @@ export default {
   // 网站图标
   // faviconGlyph: './favicon.ico',
   // 编辑此页面的跳转链接 后会自动拼接 pages/
-  docsRepositoryBase:
-    `https://github.com/SimpleLifecst/${repository}/tree/main/`,
+  docsRepositoryBase: `https://github.com/${username}/${repository}/tree/main/`,
   // 页面标题 %s 占位符 由文章标题内容使用
   useNextSeoProps() {
     return {

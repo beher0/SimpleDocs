@@ -1,16 +1,24 @@
 {
-  "index": {
-    "title": "介绍",
+  "*": {
     "theme": {
       "breadcrumb": false
     }
   },
-  "theme": "文档主题",
-  "build-ins": "内置组件",
+  "index": {
+    "title": "介绍"
+  },
+  "theme": {
+    "title": "文档主题",
+    "theme": {
+      "breadcrumb": true
+    }
+  },
+  "build-ins": {
+    "title": "内置组件",
+    "theme": {
+      "breadcrumb": true
+    }
+  },
   "deploy": "部署",
-  "zero-configuration": "零配置",
-  "about": {
-    "title": "关于",
-    "type": "page"
-  }
+  "zero-configuration": "上手"
 }

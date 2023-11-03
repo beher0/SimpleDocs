@@ -1,3 +1,7 @@
+const username = 'BeHer0';
+const repository = 'SimpleDocs';
+
 module.exports = {
-  repository: 'SimpleDocs',
+  username,
+  repository,
 };
