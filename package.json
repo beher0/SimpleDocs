@@ -2,19 +2,19 @@
   "name": "nextra-template",
   "version": "1.0.0",
   "description": "nextra框架搭建的文档主题网站",
-  "homepage": "https://github.com/SimpleLifecst/nextra-template",
+  "homepage": "https://github.com/SimpleLifecst/SimpleDocs",
   "scripts": {
     "dev": "next",
     "build": "next build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SimpleLifecst/nextra-template.git"
+    "url": "git+https://github.com/SimpleLifecst/SimpleDocs.git"
   },
   "author": "SimpleLife",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SimpleLifecst/nextra-template/issues"
+    "url": "https://github.com/SimpleLifecst/SimpleDocs/issues"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -28,6 +28,7 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "prettier": "^3.0.3",
     "sass": "^1.66.1"
   }
 }

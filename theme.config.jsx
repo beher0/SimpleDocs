@@ -1,11 +1,11 @@
 import Head from '@/components/Head';
 import LastUpdateDate from '@/components/LastUpdateDate';
 import Logo from '@/components/Logo';
-import { repository } from '@/config';
+import {repository} from '@/config';
 
 export default {
   logo: Logo,
-  head: <Head />,
+  head: <Head/>,
   project: {
     link: `https://github.com/SimpleLifecst/${repository}`,
   },
@@ -36,7 +36,7 @@ export default {
     text: (
       <div className='sl-footer'>
         <span>一个简单的人，做一件简单的事😀</span>
-        <br />
+        <br/>
         <span>Copyright {new Date().getFullYear()} © SimpleLife.</span>
       </div>
     ),

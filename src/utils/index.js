@@ -1,4 +1,4 @@
-import { repository } from '@/config.js';
+import {repository} from '@/config.js';
 import * as path from 'path';
 
 export function getAvailablePath(src) {
