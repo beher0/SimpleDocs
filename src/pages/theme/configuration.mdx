@@ -1,7 +1,7 @@
-import Table from "@/components/Table";
-import Image from "@/components/Image";
-import { Callout } from "nextra/components";
-import { Tab, Tabs } from "nextra/components";
+import Table from '@/components/Table';
+import Image from '@/components/Image';
+import { Callout } from 'nextra/components';
+import { Tab, Tabs } from 'nextra/components';
 
 # 主题配置
 
@@ -10,7 +10,7 @@ import { Tab, Tabs } from "nextra/components";
 ```js copy filename="theme.config.jsx"
 export default {
   project: {
-    link: "https://github.com/SimpleLifecst/nextra-template",
+    link: 'https://github.com/SimpleLifecst/nextra-template',
   },
   logo: <strong>SimpleLife</strong>,
 };
@@ -25,7 +25,7 @@ export default {
 设置文档仓库 URL。它用于生成`问题？给我反馈`链接和`在 GitHub 上编辑此页面`链接。
 
 <Table
-  list={[{ option: "docsRepositoryBase", type: "string", desc: "存储库地址" }]}
+  list={[{ option: 'docsRepositoryBase', type: 'string', desc: '存储库地址' }]}
 ></Table>
 
 #### 指定路径
@@ -35,7 +35,7 @@ export default {
 ```js copy
 export default {
   docsRepositoryBase:
-    "https://github.com/SimpleLifecst/nextra-template/tree/main/",
+    'https://github.com/SimpleLifecst/nextra-template/tree/main/',
 };
 ```
 
@@ -52,9 +52,9 @@ export default {
 <Table
   list={[
     {
-      option: "useNextSeoProps",
-      type: "() => NextSeoProps",
-      desc: "返回Next SEO选项的React钩子函数。",
+      option: 'useNextSeoProps',
+      type: '() => NextSeoProps',
+      desc: '返回Next SEO选项的React钩子函数。',
     },
   ]}
 ></Table>
@@ -67,7 +67,7 @@ export default {
 export default {
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – SimpleLife",
+      titleTemplate: '%s – SimpleLife',
     };
   },
 };
@@ -81,9 +81,9 @@ export default {
 export default {
   useNextSeoProps() {
     const { asPath } = useRouter();
-    if (asPath !== "/") {
+    if (asPath !== '/') {
       return {
-        titleTemplate: "%s – SimpleLife",
+        titleTemplate: '%s – SimpleLife',
       };
     }
   },
@@ -97,9 +97,9 @@ export default {
 <Table
   list={[
     {
-      option: "head",
-      type: "React.ReactNode | React.FC",
-      desc: "将组件内容渲染到<head>标签内。",
+      option: 'head',
+      type: 'React.ReactNode | React.FC',
+      desc: '将组件内容渲染到<head>标签内。',
     },
   ]}
 ></Table>
@@ -129,24 +129,24 @@ export default {
 您还可以使用函数组件作为`head`，根据当前页面的前提动态生成`head` 标签。例如：
 
 ```js copy
-import { useRouter } from "next/router";
-import { useConfig } from "nextra-theme-docs";
+import { useRouter } from 'next/router';
+import { useConfig } from 'nextra-theme-docs';
 
 export default {
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter } = useConfig();
     const url =
-      "https://my-app.com" +
+      'https://my-app.com' +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
 
     return (
       <>
         <meta property="og:url" content={url} />
-        <meta property="og:title" content={frontMatter.title || "SimpleLife"} />
+        <meta property="og:title" content={frontMatter.title || 'SimpleLife'} />
         <meta
           property="og:description"
-          content={frontMatter.description || "This website is SimpleLife"}
+          content={frontMatter.description || 'This website is SimpleLife'}
         />
       </>
     );
@@ -163,13 +163,13 @@ export default {
 <Table
   list={[
     {
-      option: "darkMode",
-      type: "boolean",
-      desc: "显示或隐藏黑暗模式状态开关按钮。",
+      option: 'darkMode',
+      type: 'boolean',
+      desc: '显示或隐藏黑暗模式状态开关按钮。',
     },
     {
-      option: "nextThemes",
-      type: "object",
+      option: 'nextThemes',
+      type: 'object',
       desc: '"next-themes"主题的配置',
     },
   ]}
@@ -182,9 +182,9 @@ export default {
 <Table
   list={[
     {
-      option: "primaryHue",
-      type: "number | { dark: number; light: number }	",
-      desc: "主题色的色调。",
+      option: 'primaryHue',
+      type: 'number | { dark: number; light: number }	',
+      desc: '主题色的色调。',
     },
   ]}
 ></Table>
@@ -211,15 +211,14 @@ export default {
 <Table
   list={[
     {
-      option: "logo",
-      type: "React.ReactNode | React.FC",
-      desc: "网站的徽标",
+      option: 'logo',
+      type: 'React.ReactNode | React.FC',
+      desc: '网站的徽标',
     },
     {
-      option: "logoLink",
-      type: "boolean | string",
-      desc:
-        "默认是项目首页，可以使用true/false关闭链接，也可以更改为其他跳转路径",
+      option: 'logoLink',
+      type: 'boolean | string',
+      desc: '默认是项目首页，可以使用true/false关闭链接，也可以更改为其他跳转路径',
     },
   ]}
 ></Table>
@@ -242,14 +241,14 @@ export default {
 <Table
   list={[
     {
-      option: "project.link",
-      type: "string",
-      desc: "项目主页的URL",
+      option: 'project.link',
+      type: 'string',
+      desc: '项目主页的URL',
     },
     {
-      option: "project.icon",
-      type: "React.ReactNode | React.FC",
-      desc: "链接图标，默认Github图标",
+      option: 'project.icon',
+      type: 'React.ReactNode | React.FC',
+      desc: '链接图标，默认Github图标',
     },
   ]}
 ></Table>
@@ -261,7 +260,7 @@ export default {
 ```js copy
 export default {
   project: {
-    link: "https://gitlab.com/inkscape/inkscape",
+    link: 'https://gitlab.com/inkscape/inkscape',
     icon: (
       <svg width="24" height="24" viewBox="0 0 256 256">
         <path
@@ -281,14 +280,14 @@ export default {
 <Table
   list={[
     {
-      option: "chat.link",
-      type: "string",
-      desc: "聊天链接的URL",
+      option: 'chat.link',
+      type: 'string',
+      desc: '聊天链接的URL',
     },
     {
-      option: "chat.icon",
-      type: "React.ReactNode | React.FC",
-      desc: "链接图标，默认图标是Discord",
+      option: 'chat.icon',
+      type: 'React.ReactNode | React.FC',
+      desc: '链接图标，默认图标是Discord',
     },
   ]}
 ></Table>
@@ -298,7 +297,7 @@ export default {
 ```js copy
 export default {
   chat: {
-    link: "https://twitter.com/SimpleLife",
+    link: 'https://twitter.com/SimpleLife',
     icon: (
       <svg width="24" height="24" viewBox="0 0 248 204">
         <path
@@ -318,30 +317,29 @@ export default {
 <Table
   list={[
     {
-      option: "search.component",
-      type:
-        "React.ReactNode | React.FC<{ className?: string, directories: Item[]}>",
-      desc: "搜索栏组件，可重写搜索栏",
+      option: 'search.component',
+      type: 'React.ReactNode | React.FC<{ className?: string, directories: Item[]}>',
+      desc: '搜索栏组件，可重写搜索栏',
     },
     {
-      option: "search.emptyResult",
-      type: "React.ReactNode | React.FC",
-      desc: "搜索无内容提示信息",
+      option: 'search.emptyResult',
+      type: 'React.ReactNode | React.FC',
+      desc: '搜索无内容提示信息',
     },
     {
-      option: "search.loading",
-      type: "React.ReactNode | React.FC",
-      desc: "搜索加载中提示信息",
+      option: 'search.loading',
+      type: 'React.ReactNode | React.FC',
+      desc: '搜索加载中提示信息',
     },
     {
-      option: "search.error",
-      type: "string | (() => string)",
-      desc: "搜索错误提示信息",
+      option: 'search.error',
+      type: 'string | (() => string)',
+      desc: '搜索错误提示信息',
     },
     {
-      option: "search.placeholder",
-      type: "string | (() => string)",
-      desc: "搜索栏占位内容",
+      option: 'search.placeholder',
+      type: 'string | (() => string)',
+      desc: '搜索栏占位内容',
     },
   ]}
 ></Table>
@@ -349,10 +347,10 @@ export default {
 ```js copy
 export default {
   search: {
-    emptyResult: "找不到结果",
-    loading: "加载中",
-    error: "搜索错误",
-    placeholder: "搜索",
+    emptyResult: '找不到结果',
+    loading: '加载中',
+    error: '搜索错误',
+    placeholder: '搜索',
   },
 };
 ```
@@ -364,19 +362,19 @@ export default {
 <Table
   list={[
     {
-      option: "banner.dismissible",
-      type: "boolean",
-      desc: "是否显示关闭横幅按钮",
+      option: 'banner.dismissible',
+      type: 'boolean',
+      desc: '是否显示关闭横幅按钮',
     },
     {
-      option: "banner.key",
-      type: "string",
-      desc: "存储key以保持横幅状态（关闭或打开)",
+      option: 'banner.key',
+      type: 'string',
+      desc: '存储key以保持横幅状态（关闭或打开)',
     },
     {
-      option: "banner.text",
-      type: "React.ReactNode | React.FC",
-      desc: "横幅内容",
+      option: 'banner.text',
+      type: 'React.ReactNode | React.FC',
+      desc: '横幅内容',
     },
   ]}
 ></Table>
@@ -406,7 +404,7 @@ banner: {
 ```js copy
 export default {
   banner: {
-    key: "SimpleLife",
+    key: 'SimpleLife',
     text: <a>…………</a>,
   },
 };
@@ -423,14 +421,14 @@ export default {
 <Table
   list={[
     {
-      option: "navbar.component",
-      type: "React.ReactNode | React.FC<NavBarProps>",
-      desc: "导航栏组件",
+      option: 'navbar.component',
+      type: 'React.ReactNode | React.FC<NavBarProps>',
+      desc: '导航栏组件',
     },
     {
-      option: "navbar.extraContent",
-      type: "React.ReactNode | React.FC",
-      desc: "在最右侧最后一个图标后显示额外的内容。",
+      option: 'navbar.extraContent',
+      type: 'React.ReactNode | React.FC',
+      desc: '在最右侧最后一个图标后显示额外的内容。',
     },
   ]}
 ></Table>
@@ -456,26 +454,24 @@ export {
 <Table
   list={[
     {
-      option: "sidebar.defaultMenuCollapseLevel",
-      type: "number",
-      desc: "指定左侧菜单默认折叠的文件夹级别。默认为2。",
+      option: 'sidebar.defaultMenuCollapseLevel',
+      type: 'number',
+      desc: '指定左侧菜单默认折叠的文件夹级别。默认为2。',
     },
     {
-      option: "sidebar.autoCollapse",
-      type: "boolean",
-      desc:
-        "如果为true，则自动折叠defaultMenuCollapseLevel上方的非活动文件夹。",
+      option: 'sidebar.autoCollapse',
+      type: 'boolean',
+      desc: '如果为true，则自动折叠defaultMenuCollapseLevel上方的非活动文件夹。',
     },
     {
-      option: "sidebar.titleComponent",
-      type:
-        "React.ReactNode | React.FC<{type: string;title: string;route: string;}>",
-      desc: "自定义渲染侧边栏标题的组件。",
+      option: 'sidebar.titleComponent',
+      type: 'React.ReactNode | React.FC<{type: string;title: string;route: string;}>',
+      desc: '自定义渲染侧边栏标题的组件。',
     },
     {
-      option: "sidebar.toggleButton",
-      type: "boolean",
-      desc: "隐藏/显示侧边栏状态开关按钮。默认隐藏。",
+      option: 'sidebar.toggleButton',
+      type: 'boolean',
+      desc: '隐藏/显示侧边栏状态开关按钮。默认隐藏。',
     },
   ]}
 ></Table>
@@ -494,21 +490,20 @@ export {
 
 <Tabs items={['theme.config.jsx', 'pages/_meta.json']}>
   <Tab>
-    ```js copy
-    export default {
+  ```js copy
+  export default {
     sidebar:{
-    titleComponent({title, type}) {
-    if (type === 'separator') {
-    return (
-    <div style={{background: 'cyan', textAlign: 'center'}}>{title}</div>
-  );
-  }
-  return <>👉 {title}</>
-  ;
-  },
-  },
+      titleComponent({title, type}) {
+        if (type === 'separator') {
+          return (
+          <div style={{background: 'cyan', textAlign: 'center'}}>{title}</div>
+        );
+       }
+      return <>{title}</>
+    },
+   },
   };
-  ```
+ ```
 </Tab>
 <Tab>
   ```json copy
@@ -534,15 +529,15 @@ export {
 <Table
   list={[
     {
-      option: "components",
-      type: "Record<string, React.FC>",
-      desc: "自定义MDX组件",
+      option: 'components',
+      type: 'Record<string, React.FC>',
+      desc: '自定义MDX组件',
     },
   ]}
 ></Table>
 
 ```js copy
-import Code from "@/components/Code";
+import Code from '@/components/Code';
 
 export default {
   components: {
@@ -551,7 +546,7 @@ export default {
 };
 ```
 
-`components`属性是一个对象，使用键值对的形式，键必须是规定的元素，请查看[MDX components](https://mdxjs.com/table-of-components/ "MDX components")
+`components`属性是一个对象，使用键值对的形式，键必须是规定的元素，请查看[MDX components](https://mdxjs.com/table-of-components/ 'MDX components')
 
 ### 书写方向
 
@@ -560,16 +555,16 @@ export default {
 <Table
   list={[
     {
-      option: "direction",
+      option: 'direction',
       type: '"ltr" | "rtl"',
-      desc: "书写方向",
+      desc: '书写方向',
     },
   ]}
 ></Table>
 
 ```js copy
 export default {
-  direction: "rtl",
+  direction: 'rtl',
 };
 ```
 
@@ -580,15 +575,15 @@ export default {
 <Table
   list={[
     {
-      option: "main",
-      type: "React.FC<{ children: React.ReactNode }>",
-      desc: "主要内容组件",
+      option: 'main',
+      type: 'React.FC<{ children: React.ReactNode }>',
+      desc: '主要内容组件',
     },
   ]}
 ></Table>
 
 ```js copy
-import MainComponent from "@/components/MainComponent";
+import MainComponent from '@/components/MainComponent';
 
 export default {
   main: MainComponent,
@@ -617,34 +612,34 @@ export default function MainComponent({ children }) {
 <Table
   list={[
     {
-      option: "toc.component",
-      type: "React.ReactNode | React.FC<TOCProps>",
-      desc: "自定义渲染目录组件",
+      option: 'toc.component',
+      type: 'React.ReactNode | React.FC<TOCProps>',
+      desc: '自定义渲染目录组件',
     },
     {
-      option: "toc.extraContent",
-      type: "React.ReactNode | React.FC",
-      desc: "在目录下面显示额外的内容",
+      option: 'toc.extraContent',
+      type: 'React.ReactNode | React.FC',
+      desc: '在目录下面显示额外的内容',
     },
     {
-      option: "toc.float",
-      type: "boolean",
-      desc: "将目录浮动到内容旁边。",
+      option: 'toc.float',
+      type: 'boolean',
+      desc: '将目录浮动到内容旁边。',
     },
     {
-      option: "toc.title",
-      type: "React.ReactNode | React.FC",
+      option: 'toc.title',
+      type: 'React.ReactNode | React.FC',
       desc: '目录标题，默认显示"On This Page"',
     },
     {
-      option: "toc.headingComponent",
-      type: "React.FC<{ id: string, children: string }>",
-      desc: "目录标题的自定义渲染器。",
+      option: 'toc.headingComponent',
+      type: 'React.FC<{ id: string, children: string }>',
+      desc: '目录标题的自定义渲染器。',
     },
     {
-      option: "toc.backToTop",
-      type: "boolean",
-      desc: "添加`Scroll to top`滚动到顶部的链接",
+      option: 'toc.backToTop',
+      type: 'boolean',
+      desc: '添加`Scroll to top`滚动到顶部的链接',
     },
   ]}
 ></Table>
@@ -652,7 +647,7 @@ export default function MainComponent({ children }) {
 ```js copy
 export default {
   toc: {
-    title: "目录",
+    title: '目录',
     backToTop: true,
     float: true,
   },
@@ -670,15 +665,14 @@ export default {
 <Table
   list={[
     {
-      option: "editLink.text",
-      type: "React.ReactNode | React.FC",
-      desc: "默认编辑链接的显示内容，如“Edit this page”",
+      option: 'editLink.text',
+      type: 'React.ReactNode | React.FC',
+      desc: '默认编辑链接的显示内容，如“Edit this page”',
     },
     {
-      option: "editLink.component",
-      type:
-        "React.FC<{children: React.ReactNode;className?: string;filePath?: string;}",
-      desc: "定制的编辑链接组件。",
+      option: 'editLink.component',
+      type: 'React.FC<{children: React.ReactNode;className?: string;filePath?: string;}',
+      desc: '定制的编辑链接组件。',
     },
   ]}
 ></Table>
@@ -690,20 +684,19 @@ export default {
 <Table
   list={[
     {
-      option: "feedback.content",
-      type: "React.ReactNode | React.FC",
-      desc: "反馈按钮的内容",
+      option: 'feedback.content',
+      type: 'React.ReactNode | React.FC',
+      desc: '反馈按钮的内容',
     },
     {
-      option: "feedback.labels",
-      type: "string",
-      desc: "可以添加到新创建的GitHub issue中的标签",
+      option: 'feedback.labels',
+      type: 'string',
+      desc: '可以添加到新创建的GitHub issue中的标签',
     },
     {
-      option: "feedback.useLink",
-      type: "() => string",
-      desc:
-        "默认情况下，自定义链接将在“docsRepositoryBase”中设置的存储库中打开一个问题。",
+      option: 'feedback.useLink',
+      type: '() => string',
+      desc: '默认情况下，自定义链接将在“docsRepositoryBase”中设置的存储库中打开一个问题。',
     },
   ]}
 ></Table>
@@ -719,19 +712,19 @@ export default {
 <Table
   list={[
     {
-      option: "navigation",
-      type: "boolean | object",
-      desc: "启用或禁用导航链接。",
+      option: 'navigation',
+      type: 'boolean | object',
+      desc: '启用或禁用导航链接。',
     },
     {
-      option: "navigation.prev",
-      type: "boolean",
-      desc: "启用或禁用上一页链接。",
+      option: 'navigation.prev',
+      type: 'boolean',
+      desc: '启用或禁用上一页链接。',
     },
     {
-      option: "navigation.next",
-      type: "boolean",
-      desc: "启用或禁用下一页链接。",
+      option: 'navigation.next',
+      type: 'boolean',
+      desc: '启用或禁用下一页链接。',
     },
   ]}
 ></Table>
@@ -756,9 +749,9 @@ export default {
 <Table
   list={[
     {
-      option: "gitTimestamp",
-      type: "React.ReactNode | React.FC<{ timestamp: Date }>",
-      desc: "组件渲染最近更新的信息",
+      option: 'gitTimestamp',
+      type: 'React.ReactNode | React.FC<{ timestamp: Date }>',
+      desc: '组件渲染最近更新的信息',
     },
   ]}
 ></Table>
@@ -770,10 +763,10 @@ export default {
 ```
 
 ```js copy filename="LastUpdateDate"
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 function LastUpdateDate({ timestamp }) {
-  return "最后更新于 " + dayjs(timestamp).format("YYYY年M月D日");
+  return '最后更新于 ' + dayjs(timestamp).format('YYYY年M月D日');
 }
 
 export default LastUpdateDate;
@@ -786,14 +779,14 @@ export default LastUpdateDate;
 <Table
   list={[
     {
-      option: "footer.text",
-      type: "React.ReactNode | React.FC",
-      desc: "默认页脚组件的内容",
+      option: 'footer.text',
+      type: 'React.ReactNode | React.FC',
+      desc: '默认页脚组件的内容',
     },
     {
-      option: "footer.component",
-      type: "React.ReactNode | React.FC<{ menu: boolean }>",
-      desc: "自定义的页脚组件",
+      option: 'footer.component',
+      type: 'React.ReactNode | React.FC<{ menu: boolean }>',
+      desc: '自定义的页脚组件',
     },
   ]}
 ></Table>
@@ -819,15 +812,14 @@ export default {
 <Table
   list={[
     {
-      option: "themeSwitch.component",
-      type:
-        "React.ReactNode | React.FC<{ lite?: boolean, className?: string }>	",
-      desc: "渲染主题切换功能的组件。",
+      option: 'themeSwitch.component',
+      type: 'React.ReactNode | React.FC<{ lite?: boolean, className?: string }>	',
+      desc: '渲染主题切换功能的组件。',
     },
     {
-      option: "themeSwitch.useOptions",
-      type: "ThemeOptions | () => ThemeOptions",
-      desc: "主题切换中的选项",
+      option: 'themeSwitch.useOptions',
+      type: 'ThemeOptions | () => ThemeOptions',
+      desc: '主题切换中的选项',
     },
   ]}
 ></Table>
@@ -841,9 +833,9 @@ export default {
   themeSwitch: {
     useOptions() {
       return {
-        light: "白天",
-        dark: "黑夜",
-        system: "系统",
+        light: '白天',
+        dark: '黑夜',
+        system: '系统',
       };
     },
   },
@@ -857,9 +849,9 @@ export default {
 <Table
   list={[
     {
-      option: "faviconGlyph",
-      type: "string",
-      desc: "用作网站显示的图标。",
+      option: 'faviconGlyph',
+      type: 'string',
+      desc: '用作网站显示的图标。',
     },
   ]}
 ></Table>

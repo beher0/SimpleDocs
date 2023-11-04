@@ -157,9 +157,9 @@ jobs:
 
 ## GitHub Pages
 
-GitHub Pages 必须在每个 repo 的基础上打开, 打开它时，您可以选择要服务的分支,将服务设置在`.gh-pages`分支
+GitHub Pages 必须在每个 repository 的基础上打开, 打开它时，您可以选择要服务的分支,将服务设置在`.gh-pages`分支
 
-在浏览器中, 打开 GitHub 里的项目 repo
+在浏览器中, 打开 GitHub 里的项目 repository
 在 Settings > Pages > Source 中, 将 Branch 分支设定在`.gh-pages`并点击 Save 保存配置
 
 <Image src='/images/github_pages.png'/>
@@ -172,47 +172,64 @@ GitHub Pages 必须在每个 repo 的基础上打开, 打开它时，您可以�
 
 Next.js 的`next/image`、`next/link`和`next/router`指定路径是相对于 /的
 
-而 GitHub Pages 托管站点的 URL 为:`https://<你的 github name>.github.io/<repo>`
+而 GitHub Pages 托管站点的 URL 为:`https://<你的 github name>.github.io/<repository>`
 
-如: https://simplelifecst.github.io/nextra-template/
-所以 需要通过配置使 Next.js 得到 `/<repo>`
+如: https://beher0.github.io/SimpleDocs/
+所以 需要通过配置使 Next.js 得到 `/<repository>`
 
 有两个相关的配置选项: `basePath` 和 `assetPrefix`
 
-将 basePath 设置为 `/<repo name>` 将生成 GitHub Pages 可访问链接
+将 basePath 设置为 `/<repository name>` 将生成 GitHub Pages 可访问链接
 
-将 assetPrefix 设置为 `/<repo name>` 将生成 GitHub Pages 可访问图像
+将 assetPrefix 设置为 `/<repository name>` 将生成 GitHub Pages 可访问图像
 
 根据开发环境和生成环境来区分路径，来保证路径的正确性
 
 ```js copy filename="next.config.js"
-const repo = 'nextra-template';
+const repository = 'SimpleDocs';
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  assetPrefix: isProd ? `/${repo}` : '',
-  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repository}` : '',
+  basePath: isProd ? `/${repository}` : '',
 };
 ```
 
 ### 完整配置
 
-```js copy filename="next.config.js"
-const repo = 'nextra-template';
-const isProd = process.env.NODE_ENV === 'production';
+```js copy filename="config.js"
+const username = 'BeHer0';
+const repository = 'SimpleDocs';
 
+module.exports = {
+  username,
+  repository,
+};
+```
+
+```js copy filename="next.config.js"
+const { repository } = require('./src/config');
+const path = require('path');
+const isProd = process.env.NODE_ENV === 'production';
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.jsx',
 });
 
 const nextConfig = {
+  assetPrefix: isProd ? `/${repository}` : '',
+  basePath: isProd ? `/${repository}` : '',
   output: 'export',
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd ? `/${repo}` : '',
-  basePath: isProd ? `/${repo}` : '',
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    return config;
+  },
 };
 
 module.exports = withNextra(nextConfig);
