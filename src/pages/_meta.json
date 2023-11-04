@@ -20,5 +20,13 @@
     }
   },
   "deploy": "部署",
-  "zero-configuration": "上手"
+  "zero-configuration": "快速上手",
+  "message-board": {
+    "title": "留言板",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "layout": "full"
+    }
+  }
 }

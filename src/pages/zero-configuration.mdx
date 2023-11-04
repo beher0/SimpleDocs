@@ -1,4 +1,4 @@
-# 上手
+# 快速上手
 
 以极简的方式，让你零配置上手 Nextra 文档主题，以避免复杂的配置
 
@@ -52,6 +52,15 @@ import { FileTree } from 'nextra/components';
 #### config.js
 
 公共配置，请配置您的Github用户名和仓库地址
+```js filename="config.js" copy
+const username = 'BeHer0';
+const repository = 'SimpleDocs';
+
+module.exports = {
+  username,
+  repository,
+};
+```
 
 #### globalStyle.scss
 
@@ -60,4 +69,5 @@ import { FileTree } from 'nextra/components';
 1. `.light`白天主题样式
 2. `.dark`黑夜主题模式
 
-## 修改配置
+
+
