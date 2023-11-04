@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SimpleLifecst/SimpleDocs.git"
+    "url": "git+https://github.com/BeHer0/SimpleDocs.git"
   },
   "author": "BeHer0",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SimpleLifecst/SimpleDocs/issues"
+    "url": "https://github.com/BeHer0/SimpleDocs/issues"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -27,7 +27,10 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "tailwindcss": "^3.3.5"
   }
 }
