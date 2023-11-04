@@ -27,7 +27,7 @@ export default function Table({ list }) {
               <td className="whitespace-pre py-2 pl-6 font-mono text-xs font-semibold leading-6 text-slate-500 dark:text-slate-400">
                 {type}
               </td>
-              <td className="py-2 pl-6">{desc}</td>
+              <td className="py-2 pl-6 basic-color">{desc}</td>
             </tr>
           ))}
         </tbody>
